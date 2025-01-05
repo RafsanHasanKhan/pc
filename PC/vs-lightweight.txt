@@ -1,0 +1,79 @@
+{
+  // Workspace Trust
+  "security.workspace.trust.startupPrompt": "never",
+  "security.workspace.trust.enabled": false,
+
+  // Editor Settings
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.cursorBlinking": "solid",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.autoClosingBrackets": "languageDefined",
+  "editor.snippetSuggestions": "inline",
+  "editor.quickSuggestionsDelay": 50,
+  "editor.hover.enabled": false,
+  "editor.codeLens": false,
+  "editor.smoothScrolling": false,
+  "editor.accessibilitySupport": "off",
+  "editor.largeFileOptimizations": true,
+  "editor.rulers": [],
+
+  // Prettier
+  "prettier.proseWrap": "always",
+  "prettier.singleQuote": true,
+  "prettier.arrowParens": "avoid",
+
+  // Terminal
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": false,
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.splitCwd": "initial",
+  "terminal.integrated.scrollback": 1000,
+
+  // Files
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": true,
+
+  // Workbench
+  "workbench.colorTheme": "Andromeda",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.enablePreview": true,
+  "workbench.startupEditor": "none",
+  "workbench.enableExperiments": false,
+  "workbench.editor.closeEmptyGroups": true,
+  "workbench.tree.indent": 16,
+  "breadcrumbs.enabled": false,
+
+  // Extensions & Performance
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "auto-rename-tag.activationOnLanguage": [
+    "javascript",
+    "javascriptreact",
+    "html"
+  ],
+  "extensions.autoUpdate": false,
+
+  "editor.indentSize": "tabSize",
+  "workbench.activityBar.location": "top",
+  "terminal.integrated.tabs.location": "right",
+
+  // GitHub Copilot
+  "github.copilot.enable": true,
+  "github.copilot.acceptSuggestionOnEnter": "off",
+  "github.copilot.autoTrigger": "on",
+  "github.copilot.debug": "off",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "editor.codeActionsOnSave": {}
+}
