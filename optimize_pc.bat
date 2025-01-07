@@ -1,0 +1,13 @@
+@echo off
+echo Cleaning temporary files...
+del /q /f /s %TEMP%\*
+echo Optimizing disk...
+defrag C: /O
+echo Scanning and fixing corrupted files...
+sfc /scannow
+DISM /Online /Cleanup-Image /RestoreHealth
+echo Disabling unnecessary services...
+sc config "SysMain" start=disabled
+sc config "WSearch" start=disabled
+echo Done!
+pause
