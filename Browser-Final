@@ -1,0 +1,39 @@
+@echo off
+title Deep Clean: Remove History, Cache, and Cookies
+echo Starting deep clean process... Please wait.
+
+:: Step 1: Forcefully Close Browsers
+echo Closing all browsers...
+taskkill /f /im chrome.exe >nul 2>&1
+taskkill /f /im firefox.exe >nul 2>&1
+taskkill /f /im msedge.exe >nul 2>&1
+taskkill /f /im iexplore.exe >nul 2>&1
+
+:: Step 2: Clear Google Chrome Data
+echo Clearing Google Chrome data...
+del /q /s "%LocalAppData%\Google\Chrome\User Data\Default\Cache\*" >nul 2>&1
+del /q "%LocalAppData%\Google\Chrome\User Data\Default\Cookies" >nul 2>&1
+del /q "%LocalAppData%\Google\Chrome\User Data\Default\History" >nul 2>&1
+del /q /s "%LocalAppData%\Google\Chrome\User Data\Default\Code Cache\*" >nul 2>&1
+
+:: Step 3: Clear Mozilla Firefox Data
+echo Clearing Mozilla Firefox data...
+del /q /s "%AppData%\Mozilla\Firefox\Profiles\*\cache2\*" >nul 2>&1
+del /q "%AppData%\Mozilla\Firefox\Profiles\*\cookies.sqlite" >nul 2>&1
+del /q "%AppData%\Mozilla\Firefox\Profiles\*\places.sqlite" >nul 2>&1
+
+:: Step 4: Clear Microsoft Edge Data
+echo Clearing Microsoft Edge data...
+del /q /s "%LocalAppData%\Microsoft\Edge\User Data\Default\Cache\*" >nul 2>&1
+del /q "%LocalAppData%\Microsoft\Edge\User Data\Default\Cookies" >nul 2>&1
+del /q "%LocalAppData%\Microsoft\Edge\User Data\Default\History" >nul 2>&1
+del /q /s "%LocalAppData%\Microsoft\Edge\User Data\Default\Code Cache\*" >nul 2>&1
+
+:: Step 5: Clear Internet Explorer Data
+echo Clearing Internet Explorer data...
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 8 >nul 2>&1
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255 >nul 2>&1
+
+:: Step 6: Finish
+echo All browser cookies, history, and cache have been cleared successfully!
+pause
