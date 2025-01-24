@@ -1,0 +1,30 @@
+@echo off
+echo Clearing browser cookies, history, and cache...
+
+:: Google Chrome
+echo Clearing Google Chrome data...
+del /q /s "%LocalAppData%\Google\Chrome\User Data\Default\Cache\*" >nul 2>&1
+del /q "%LocalAppData%\Google\Chrome\User Data\Default\Cookies" >nul 2>&1
+del /q "%LocalAppData%\Google\Chrome\User Data\Default\History" >nul 2>&1
+del /q /s "%LocalAppData%\Google\Chrome\User Data\Default\Code Cache\*" >nul 2>&1
+
+:: Mozilla Firefox
+echo Clearing Mozilla Firefox data...
+del /q /s "%AppData%\Mozilla\Firefox\Profiles\*\cache2\*" >nul 2>&1
+del /q "%AppData%\Mozilla\Firefox\Profiles\*\cookies.sqlite" >nul 2>&1
+del /q "%AppData%\Mozilla\Firefox\Profiles\*\places.sqlite" >nul 2>&1
+
+:: Microsoft Edge
+echo Clearing Microsoft Edge data...
+del /q /s "%LocalAppData%\Microsoft\Edge\User Data\Default\Cache\*" >nul 2>&1
+del /q "%LocalAppData%\Microsoft\Edge\User Data\Default\Cookies" >nul 2>&1
+del /q "%LocalAppData%\Microsoft\Edge\User Data\Default\History" >nul 2>&1
+del /q /s "%LocalAppData%\Microsoft\Edge\User Data\Default\Code Cache\*" >nul 2>&1
+
+:: Internet Explorer
+echo Clearing Internet Explorer data...
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 8  >nul 2>&1
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255 >nul 2>&1
+
+echo All browser cookies, history, and cache have been cleared!
+pause
