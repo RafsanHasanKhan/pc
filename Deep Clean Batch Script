@@ -1,0 +1,50 @@
+@echo off
+title Deep Clean: Browser and System Cleanup
+echo Starting deep clean process... Please wait.
+
+:: Step 1: Clear Google Chrome Data
+echo Clearing Google Chrome data...
+del /q /s "%LocalAppData%\Google\Chrome\User Data\Default\Cache\*" >nul 2>&1
+del /q "%LocalAppData%\Google\Chrome\User Data\Default\Cookies" >nul 2>&1
+del /q "%LocalAppData%\Google\Chrome\User Data\Default\History" >nul 2>&1
+del /q /s "%LocalAppData%\Google\Chrome\User Data\Default\Code Cache\*" >nul 2>&1
+
+:: Step 2: Clear Mozilla Firefox Data
+echo Clearing Mozilla Firefox data...
+del /q /s "%AppData%\Mozilla\Firefox\Profiles\*\cache2\*" >nul 2>&1
+del /q "%AppData%\Mozilla\Firefox\Profiles\*\cookies.sqlite" >nul 2>&1
+del /q "%AppData%\Mozilla\Firefox\Profiles\*\places.sqlite" >nul 2>&1
+
+:: Step 3: Clear Microsoft Edge Data
+echo Clearing Microsoft Edge data...
+del /q /s "%LocalAppData%\Microsoft\Edge\User Data\Default\Cache\*" >nul 2>&1
+del /q "%LocalAppData%\Microsoft\Edge\User Data\Default\Cookies" >nul 2>&1
+del /q "%LocalAppData%\Microsoft\Edge\User Data\Default\History" >nul 2>&1
+del /q /s "%LocalAppData%\Microsoft\Edge\User Data\Default\Code Cache\*" >nul 2>&1
+
+:: Step 4: Clear Internet Explorer Data
+echo Clearing Internet Explorer data...
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 8 >nul 2>&1
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255 >nul 2>&1
+
+:: Step 5: Clear System Temporary Files
+echo Clearing system temporary files...
+del /q /s "%Temp%\*" >nul 2>&1
+rd /s /q "%Temp%" >nul 2>&1
+md "%Temp%" >nul 2>&1
+
+:: Step 6: Run Malware Scanner (MRT)
+echo Running Windows Malicious Software Removal Tool...
+MRT.exe /f /q
+
+:: Step 7: Run System File Checker (SFC)
+echo Running System File Checker (sfc /scannow) to check for corrupted files...
+sfc /scannow
+
+:: Step 8: Remove Additional Temporary Files
+echo Removing Windows temporary files...
+cleanmgr /sagerun:1
+
+:: Step 9: Finish
+echo Deep clean completed successfully!
+pause
